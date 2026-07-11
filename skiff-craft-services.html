@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services — Skiff Craft Classic Wooden Boats</title>
+<meta name="description" content="Full-service restoration, varnish, paint, custom interior, mechanical, engine work and storage for Skiff Craft and classic wooden boats. St. Bonifacius, MN." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="skiff-craft.css?v=2026053137" />
+<style>
+  /* Services page supplemental */
+  .scs-hero {
+    background: var(--sc-ink);
+    color: var(--sc-paper);
+    padding: clamp(7rem, 14vh, 11rem) clamp(1.5rem, 5vw, 4rem) clamp(4rem, 8vh, 6rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .scs-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 55%, rgba(74,28,10,.45) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .scs-hero h1 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    color: var(--sc-paper);
+    margin: .6rem 0 1rem;
+    position: relative;
+  }
+  .scs-hero p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    color: rgba(246,240,227,.75);
+    max-width: 560px;
+    margin: 0 auto;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  /* Body */
+  .scs-body {
+    background: var(--sc-paper);
+  }
+
+  /* Services grid */
+  .scs-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1px;
+    background: var(--sc-line);
+    border: 1px solid var(--sc-line);
+  }
+  .scs-card {
+    background: var(--sc-paper);
+    padding: 2.4rem 2.2rem;
+    position: relative;
+    transition: background .25s ease;
+  }
+  .scs-card:hover { background: var(--sc-paper-2); }
+  .scs-card-icon {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--sc-brass);
+    margin-bottom: 1.2rem;
+  }
+  .scs-card h3 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--sc-ink);
+    margin: 0 0 .6em;
+    line-height: 1.15;
+  }
+  .scs-card > p {
+    font-size: .96rem;
+    color: var(--sc-ink-2);
+    margin: 0 0 1.1rem;
+    line-height: 1.6;
+  }
+  .scs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--sc-line);
+    padding-top: .9rem;
+  }
+  .scs-list li {
+    position: relative;
+    padding: .28rem 0 .28rem 1.1rem;
+    font-size: .88rem;
+    color: var(--sc-grey);
+    line-height: 1.45;
+  }
+  .scs-list li::before {
+    content: "";
+    position: absolute; left: 0; top: .62em;
+    width: 4px; height: 4px;
+    background: var(--sc-brass);
+    border-radius: 50%;
+  }
+
+  /* Promise band */
+  .scs-promise {
+    background: var(--sc-ink);
+    color: var(--sc-paper);
+    padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+    text-align: center;
+  }
+  .scs-promise h2 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--sc-paper);
+    max-width: 720px;
+    margin: 1rem auto 1.4rem;
+    line-height: 1.2;
+  }
+  .scs-promise p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(246,240,227,.75);
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    line-height: 1.55;
+  }
+  .scs-cta-number {
+    display: inline-block;
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: #ffffff;
+    text-decoration: none;
+    padding: .3em 0;
+    border-top: 1px solid rgba(255,255,255,.4);
+    border-bottom: 1px solid rgba(255,255,255,.4);
+    letter-spacing: .01em;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .scs-cta-number:hover {
+    color: var(--sc-brass-2);
+    border-color: var(--sc-brass-2);
+  }
+  .scs-note {
+    margin: 1.2rem 0 0;
+    font-size: .88rem;
+    color: rgba(246,240,227,.5);
+    font-style: italic;
+  }
+
+  /* Dropdown layout */
+  .scs-dropdowns {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+    display: grid;
+    gap: .6rem;
+  }
+  .scs-dd {
+    background: var(--sc-paper);
+    border: 1px solid var(--sc-line);
+    overflow: hidden;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .scs-dd[open] {
+    border-color: var(--sc-brass);
+    box-shadow: 0 12px 32px -16px rgba(74,28,10,.18);
+  }
+  .scs-dd > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    user-select: none;
+  }
+  .scs-dd > summary::-webkit-details-marker { display: none; }
+  .scs-dd-icon {
+    flex-shrink: 0;
+    color: var(--sc-brass);
+    display: flex;
+    align-items: center;
+  }
+  .scs-dd[open] .scs-dd-icon { color: var(--sc-mahog); }
+  .scs-dd-label { flex: 1; }
+  .scs-dd-label h3 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--sc-ink);
+    margin: 0 0 .2rem;
+    line-height: 1.15;
+  }
+  .scs-dd-label p {
+    font-size: .88rem;
+    color: var(--sc-grey);
+    margin: 0;
+    line-height: 1.45;
+  }
+  .scs-dd-arrow {
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: var(--sc-brass);
+    transition: transform .25s ease;
+    line-height: 1;
+  }
+  .scs-dd[open] .scs-dd-arrow { transform: rotate(180deg); }
+  .scs-dd-body {
+    padding: 0 1.4rem 1.4rem 4.2rem;
+    border-top: 2px solid var(--sc-line-2);
+    background: var(--sc-paper-2);
+    animation: scDdIn .2s ease both;
+  }
+  @keyframes scDdIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .scs-dd-body .scs-list {
+    padding-top: 1rem;
+    margin: 0;
+    border-top: none;
+  }
+</style>
+</head>
+<body class="sc-body">
+
+<!-- NAV -->
+<header class="sc-nav is-stuck" id="nav">
+  <a href="skiff-craft.html" class="sc-brand" aria-label="Skiff Craft">
+    <span class="sc-wordmark">Skiff Craft</span>
+  </a>
+  <nav class="sc-nav-links" aria-label="Primary">
+    <a href="skiff-craft.html#heritage">Heritage</a>
+    <a href="skiff-craft.html#history">History</a>
+    <a href="skiff-craft.html#models">Models</a>
+    <a href="skiff-craft.html#craftsmanship">Craftsmanship</a>
+    <a href="skiff-craft.html#gallery">Gallery</a>
+    <a href="skiff-craft-services.html" style="color:var(--sc-mahog)">Services</a>
+    <a href="skiff-craft-products.html">Products</a>
+    <a href="skiff-craft.html#contact">Call</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="scs-hero">
+  <span class="sc-tag light">Service and Restoration</span>
+  <h1>Every Skiff Craft deserves a craftsman.</h1>
+  <p>Full-service care for classic wooden boats — from a season-ready detail to a complete hull restoration. Performed at Midwest Boat Appeal and Marine Plywood, St. Bonifacius, Minnesota.</p>
+</section>
+
+<!-- SERVICES GRID -->
+<div class="scs-body">
+  <div class="scs-dropdowns">
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Hull Restoration</h3>
+          <p>Ground-up rebuilds and structural restorations for Skiff Craft and classic wooden hulls.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Full hull teardown and survey</li>
+          <li>Frame and rib replacement</li>
+          <li>Replanking and bottom replacement</li>
+          <li>Transom rebuild</li>
+          <li>Lapstrake plank repair and replacement</li>
+          <li>Deck replacement and recaulking</li>
+          <li>Structural fiberglass reinforcement</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Varnish and Brightwork</h3>
+          <p>Strip, sand, stain and varnish — mahogany topsides back to a mirror finish. 12–15 coats of marine varnish.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Full strip and bare-wood preparation</li>
+          <li>Grain raising and stain matching</li>
+          <li>12–15 coat marine varnish system</li>
+          <li>Hand-rubbed between coats</li>
+          <li>Interlux and Epifanes varnish</li>
+          <li>Annual brightwork maintenance coats</li>
+          <li>Teak brightwork and oiling</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Paint</h3>
+          <p>Topsides, hulls, bottoms and cabin soles. Anti-fouling bottom paint, boot stripe work, and custom color matching.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Topside paint (Interlux, Epifanes, Awlgrip)</li>
+          <li>Anti-fouling bottom paint</li>
+          <li>Boot stripe painting and renewal</li>
+          <li>Cabin sole and interior paint</li>
+          <li>Custom color matching</li>
+          <li>Fairing and prep work</li>
+          <li>Clear coat and sealers</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Custom Interior</h3>
+          <p>Custom upholstery, headliner, and wood trim work. Period-correct or updated — all done to order.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Seat upholstery (marine vinyl, canvas)</li>
+          <li>Custom cushion fabrication</li>
+          <li>Teak and holly flooring</li>
+          <li>Headliner replacement</li>
+          <li>Cabinet and locker woodwork</li>
+          <li>Mahogany trim and paneling</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Engine Work</h3>
+          <p>Complete inboard engine service, rebuilds and replacements for classic wooden boats.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Engine tune-ups and full service</li>
+          <li>Carburetor rebuild and fuel system</li>
+          <li>Engine rebuilds (partial and complete)</li>
+          <li>Engine replacement and repowering</li>
+          <li>Exhaust system work</li>
+          <li>MerCruiser, Volvo, Chris-Craft, Chrysler</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Mechanical Service</h3>
+          <p>Steering, controls, electrical, plumbing, pumps and hardware. Year-round availability.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Steering and control cable replacement</li>
+          <li>Hydraulic steering service</li>
+          <li>Electrical diagnosis and rewiring</li>
+          <li>Fuel system inspection and repair</li>
+          <li>Bilge pump and through-hull service</li>
+          <li>Outdrive and propeller service</li>
+          <li>Hardware fitting and replacement</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 20l4-16 4 16"/><path d="M6 9h12"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Cosmetic and Structural Repairs</h3>
+          <p>Cracked planks to storm damage — repaired and refinished so it disappears into the wood.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Plank, rib and frame repair</li>
+          <li>Checking and crack repair</li>
+          <li>Rot treatment and replacement</li>
+          <li>Rub rail replacement</li>
+          <li>Chine and keel repair</li>
+          <li>Insurance claims handled</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 20l4-16 4 16M3 4l18 0M3 20l18 0"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Rigging, Hardware and Chrome</h3>
+          <p>Period-correct hardware, chrome and brass polishing, rechroming and custom fabrication.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Cleat and hardware replacement</li>
+          <li>Chrome and brass polishing</li>
+          <li>Rechroming coordination</li>
+          <li>Windshield frame work</li>
+          <li>Bow light and running light service</li>
+          <li>Custom stainless fabrication</li>
+          <li>Prop shaft and strut alignment</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Storage and Winterizing</h3>
+          <p>Indoor secured storage, full winterizing, and spring commissioning — ready to launch when the ice goes out.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Indoor secured storage</li>
+          <li>Outdoor storage with shrinkwrap</li>
+          <li>Engine winterizing</li>
+          <li>Water system winterizing</li>
+          <li>Winter service — work done while stored</li>
+          <li>Spring commissioning and engine run-up</li>
+          <li>Pick-up and delivery available</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="scs-dd">
+      <summary>
+        <div class="scs-dd-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="scs-dd-label">
+          <h3>Cleaning and Detailing</h3>
+          <p>Hand-wash, polish, teak clean and oil — keep your classic in show condition all season.</p>
+        </div>
+        <span class="scs-dd-arrow">▾</span>
+      </summary>
+      <div class="scs-dd-body">
+        <ul class="scs-list">
+          <li>Hand-wash and hull polish</li>
+          <li>Teak cleaning and oiling</li>
+          <li>Varnish inspection and touch-up</li>
+          <li>Brightwork cleaning and protection</li>
+          <li>Bilge cleaning</li>
+          <li>Canvas and cover cleaning</li>
+          <li>Dockside detailing (Lake Minnetonka)</li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+<!-- CTA / CONTACT BAND -->
+<section class="scs-promise">
+  <span class="sc-tag light">Get in touch</span>
+  <h2>Every job done in-house. No shortcuts.</h2>
+  <p>Call to discuss your boat, describe the work, and get an honest assessment. We'll tell you what it needs and what it doesn't.</p>
+  <a class="scs-cta-number" href="tel:9524469611">952·446·9611</a>
+  <p class="scs-note">Midwest Boat Appeal and Marine Plywood · 4340 Main Street, St. Bonifacius, MN · Mon–Fri 8–5</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="sc-footer">
+  <div class="sc-footer-inner">
+    <span class="sc-footer-mark">Skiff Craft</span>
+    <p class="sc-footer-note">
+      Full service available at <a href="index.html">Midwest Boat Appeal</a>, St.&nbsp;Bonifacius, Minnesota.
+    </p>
+    <span class="sc-footer-year">© <span id="year">2026</span></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-stuck', window.scrollY > 40);
+  }, { passive: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Products — Skiff Craft Classic Wooden Boats</title>
+<meta name="description" content="Skiff Craft parts, accessories and products. All parts can be ordered. Contact Midwest Boat Appeal, St. Bonifacius, MN." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="skiff-craft.css?v=2026053137" />
+<style>
+  /* Products page supplemental */
+  .scp-hero {
+    background: var(--sc-paper-2);
+    color: var(--sc-ink);
+    padding: clamp(7rem, 14vh, 11rem) clamp(1.5rem, 5vw, 4rem) clamp(4rem, 8vh, 6rem);
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid var(--sc-line);
+  }
+  .scp-hero h1 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    color: var(--sc-ink);
+    margin: .6rem 0 1rem;
+  }
+  .scp-hero p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    color: var(--sc-ink-2);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Coming soon section */
+  .scp-coming {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+    text-align: center;
+  }
+  .scp-coming h2 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--sc-ink);
+    margin: 1rem 0 .8rem;
+  }
+  .scp-coming > p {
+    font-size: 1rem;
+    color: var(--sc-ink-2);
+    max-width: 580px;
+    margin: 0 auto 3rem;
+    line-height: 1.65;
+  }
+
+  /* Category placeholders */
+  .scp-cats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--sc-line);
+    border: 1px solid var(--sc-line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+    text-align: left;
+  }
+  .scp-cat {
+    background: var(--sc-paper);
+    padding: 1.8rem 1.6rem;
+    transition: background .2s ease;
+  }
+  .scp-cat:hover { background: var(--sc-paper-2); }
+  .scp-cat-icon {
+    color: var(--sc-brass);
+    margin-bottom: .9rem;
+  }
+  .scp-cat h3 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--sc-ink);
+    margin: 0 0 .4rem;
+  }
+  .scp-cat p {
+    font-size: .86rem;
+    color: var(--sc-grey);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .scp-cat-soon {
+    display: inline-block;
+    margin-top: .75rem;
+    font: 600 .65rem/1 'Inter', sans-serif;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--sc-brass);
+    border-bottom: 1px solid var(--sc-line-2);
+    padding-bottom: 2px;
+  }
+
+  /* Ordering note */
+  .scp-order {
+    background: var(--sc-ink);
+    color: var(--sc-paper);
+    padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+    text-align: center;
+  }
+  .scp-order h2 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--sc-paper);
+    margin: 1rem auto 1rem;
+    max-width: 680px;
+    line-height: 1.2;
+  }
+  .scp-order p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(246,240,227,.75);
+    max-width: 540px;
+    margin: 0 auto 2rem;
+    line-height: 1.55;
+  }
+  .scp-order-number {
+    display: inline-block;
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #ffffff;
+    text-decoration: none;
+    padding: .3em 0;
+    border-top: 1px solid rgba(255,255,255,.4);
+    border-bottom: 1px solid rgba(255,255,255,.4);
+    letter-spacing: .01em;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .scp-order-number:hover { color: var(--sc-brass-2); border-color: var(--sc-brass-2); }
+  .scp-order-note {
+    margin: 1rem 0 0;
+    font-size: .85rem;
+    color: rgba(246,240,227,.45);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .scp-cats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body class="sc-body">
+
+<!-- NAV -->
+<header class="sc-nav is-stuck" id="nav">
+  <a href="skiff-craft.html" class="sc-brand" aria-label="Skiff Craft">
+    <span class="sc-wordmark">Skiff Craft</span>
+  </a>
+  <nav class="sc-nav-links" aria-label="Primary">
+    <a href="skiff-craft.html#heritage">Heritage</a>
+    <a href="skiff-craft.html#history">History</a>
+    <a href="skiff-craft.html#models">Models</a>
+    <a href="skiff-craft.html#craftsmanship">Craftsmanship</a>
+    <a href="skiff-craft.html#gallery">Gallery</a>
+    <a href="skiff-craft-services.html">Services</a>
+    <a href="skiff-craft-products.html" style="color:var(--sc-mahog)">Products</a>
+    <a href="skiff-craft.html#contact">Call</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="scp-hero">
+  <span class="sc-tag">Products</span>
+  <h1>Parts and Accessories</h1>
+  <p>A full product catalog is coming. In the meantime, any part or accessory for your Skiff Craft can be ordered — just call with your hull information.</p>
+</section>
+
+<!-- COMING SOON -->
+<section style="background: var(--sc-paper);">
+  <div class="scp-coming">
+    <span class="sc-tag">Coming Soon</span>
+    <h2>Our product catalog is on its way.</h2>
+    <p>We are building out our full line of Skiff Craft parts, accessories, and care products. Until then, everything below can be ordered. Call us with your boat's model and year and we will source exactly what you need.</p>
+
+    <div class="scp-cats">
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        </div>
+        <h3>Engine Parts</h3>
+        <p>Inboard parts, gaskets, impellers, belts and rebuild components.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <h3>Varnish and Finishes</h3>
+        <p>Interlux, Epifanes, West System epoxy and teak oils.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h3>Hardware and Fittings</h3>
+        <p>Chrome cleats, brass fittings, stainless fasteners and deck hardware.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Interior and Upholstery</h3>
+        <p>Marine vinyl, canvas, carpet and cushion materials.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Trim and Propulsion</h3>
+        <p>Props, anodes, trim hardware and outdrive components.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Electrical</h3>
+        <p>Starters, switches, gauges, navigation lights and wiring.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2 12h20"/></svg>
+        </div>
+        <h3>Steering and Controls</h3>
+        <p>Helms, cables, control levers and hydraulic steering parts.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+      <div class="scp-cat">
+        <div class="scp-cat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Care and Maintenance</h3>
+        <p>Teak cleaners, hull polish, bilge cleaner and seasonal maintenance kits.</p>
+        <span class="scp-cat-soon">Available to order</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ORDERING NOTE -->
+<section class="scp-order">
+  <span class="sc-tag light">Order Any Part</span>
+  <h2>Don't see what you need? We can get it.</h2>
+  <p>Every genuine part, fitting and accessory for your Skiff Craft can be sourced and ordered. Call with your boat's model, year and hull number and we will handle the rest.</p>
+  <a class="scp-order-number" href="tel:9524469611">952·446·9611</a>
+  <p class="scp-order-note">Midwest Boat Appeal and Marine Plywood · 4340 Main Street, St. Bonifacius, MN · Mon–Fri 8–5</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="sc-footer">
+  <div class="sc-footer-inner">
+    <span class="sc-footer-mark">Skiff Craft</span>
+    <p class="sc-footer-note">
+      Parts and full service available at <a href="index.html">Midwest Boat Appeal</a>, St.&nbsp;Bonifacius, Minnesota.
+    </p>
+    <span class="sc-footer-year">© <span id="year">2026</span></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-stuck', window.scrollY > 40);
+  }, { passive: true });
+</script>
+</body>
+</html>

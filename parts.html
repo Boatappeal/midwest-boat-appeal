@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marine Parts and Supplies — Midwest Boat Appeal · Marine Plywood</title>
+<meta name="description" content="Marine parts and accessories for Mercury, MerCruiser, Volvo, OMC, Chris-Craft, Honda, Yamaha, Johnson/Evinrude and more. St. Bonifacius, MN." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2026053122" />
+<style>
+  /* Parts page supplemental styles */
+  .parts-hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: clamp(7rem, 14vh, 11rem) clamp(1rem, 5vw, 4rem) clamp(4rem, 8vh, 6rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .parts-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(138,29,42,.28) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .parts-hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    color: var(--white);
+    margin: .6rem 0 1rem;
+    position: relative;
+  }
+  .parts-hero p {
+    color: rgba(255,255,255,.78);
+    font-size: 1.1rem;
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .parts-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem);
+  }
+
+  /* Dropdown category list */
+  .parts-list {
+    display: grid;
+    gap: .75rem;
+    margin-bottom: 4rem;
+  }
+  .parts-item {
+    background: var(--white);
+    border: 1px solid var(--grey-1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .parts-item[open] {
+    border-color: var(--red);
+    box-shadow: 0 16px 36px -20px rgba(138,29,42,.25);
+  }
+  .parts-item > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+  }
+  .parts-item > summary::-webkit-details-marker { display: none; }
+  .parts-item-icon {
+    width: 42px; height: 42px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--paper);
+    border-radius: 10px;
+    color: var(--navy);
+    transition: background .2s ease, color .2s ease;
+  }
+  .parts-item[open] .parts-item-icon {
+    background: var(--red);
+    color: var(--white);
+  }
+  .parts-item-label {
+    flex: 1;
+  }
+  .parts-item-label h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin: 0 0 .2rem;
+  }
+  .parts-item-label p {
+    color: var(--grey-3);
+    font-size: .88rem;
+    margin: 0;
+    line-height: 1.45;
+  }
+  .parts-item-arrow {
+    font-size: 1.1rem;
+    color: var(--grey-2);
+    transition: transform .25s ease;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .parts-item[open] .parts-item-arrow {
+    transform: rotate(180deg);
+    color: var(--red);
+  }
+
+  /* Expanded bullet list */
+  .parts-item-body {
+    padding: 0 1.5rem 1.5rem 4.7rem;
+    border-top: 3px solid var(--red);
+    background: var(--paper);
+    animation: ddIn .22s ease both;
+  }
+  @keyframes ddIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .parts-item-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: .35rem .8rem;
+  }
+  .parts-item-body li {
+    position: relative;
+    padding: .3rem 0 .3rem 1.1rem;
+    font-size: .9rem;
+    color: var(--grey-3);
+    line-height: 1.4;
+  }
+  .parts-item-body li::before {
+    content: "";
+    position: absolute; left: 0; top: .65em;
+    width: 5px; height: 5px;
+    background: var(--red);
+    border-radius: 1px;
+  }
+
+  /* Brands section */
+  .parts-brands-section {
+    background: var(--paper-2);
+    border-radius: 16px;
+    padding: 2.4rem 2rem;
+    margin-bottom: 3rem;
+  }
+  .parts-brands-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin: 0 0 .4rem;
+  }
+  .parts-brands-section > p {
+    color: var(--grey-3);
+    margin: 0 0 1.8rem;
+    font-size: .98rem;
+  }
+  .brand-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem;
+  }
+  .brand-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: .55em 1em;
+    background: var(--white);
+    border: 1px solid var(--grey-1);
+    border-radius: 999px;
+    font: 600 .86rem/1 'Inter', sans-serif;
+    color: var(--navy);
+    letter-spacing: .01em;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .brand-chip:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  /* CTA band */
+  .parts-cta {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 2.4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .parts-cta h3 { font-family: 'Fraunces', serif; color: var(--white); font-size: 1.5rem; margin: 0 0 .3rem; }
+  .parts-cta p  { color: rgba(255,255,255,.75); margin: 0; font-size: .98rem; }
+
+  @media (max-width: 820px) {
+    .parts-cta { flex-direction: column; text-align: center; }
+    .parts-item-body ul { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav is-stuck" id="nav">
+  <a href="index.html" class="brand" aria-label="Midwest Boat Appeal · Marine Plywood">
+    <span class="brand-wordmark" aria-hidden="true">
+      <span class="brand-row brand-row-1">MIDWEST BOAT APPEAL</span>
+      <span class="brand-row brand-row-2">MARINE PLYWOOD</span>
+      <span class="brand-rule"></span>
+      <span class="brand-row brand-row-3">FROM MINNESOTA · EST. 1990</span>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#plywood">Plywood</a>
+    <a href="parts.html" style="color:var(--red)">Parts</a>
+    <a href="index.html#sales">Boats for Sale</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="nav-cta" href="tel:9524469611">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+    952-446-9611
+  </a>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="parts-hero">
+  <span class="section-tag">Marine Parts</span>
+  <h1>Parts and Supplies</h1>
+  <p>We stock and order marine parts for almost every boat engine and brand on the water — OEM and aftermarket. If we don't have it, we can get it.</p>
+</section>
+
+<!-- ============ MAIN CONTENT ============ -->
+<div class="parts-body">
+
+  <header class="section-head" style="text-align:left; max-width:none; margin-bottom:2rem;">
+    <span class="section-tag">What we carry</span>
+    <h2>Parts by category</h2>
+    <p style="color:var(--grey-3); margin:.4rem 0 0;">Click any category to see what's included. Don't see what you need? Call us — we can source parts for almost any engine.</p>
+  </header>
+
+  <div class="parts-list">
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Engine Parts</h3>
+          <p>Internal engine components and rebuild kits for inboard and I/O engines.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Pistons and rings</li>
+          <li>Crankshafts and bearings</li>
+          <li>Camshafts and lifters</li>
+          <li>Cylinder heads and gasket sets</li>
+          <li>Intake and exhaust manifolds</li>
+          <li>Engine rebuild kits (by brand)</li>
+          <li>Rocker arms and pushrods</li>
+          <li>Oil pans and timing covers</li>
+          <li>Connecting rods</li>
+          <li>Valve train components</li>
+          <li>Harmonic balancers</li>
+          <li>Flywheel rings and flex plates</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Fuel Systems</h3>
+          <p>Carburetors, injectors, pumps, filters, tanks, and fuel lines.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Carburetors and rebuild kits</li>
+          <li>Fuel injectors</li>
+          <li>Mechanical and electric fuel pumps</li>
+          <li>Fuel filters and water separators</li>
+          <li>Fuel tanks and fittings</li>
+          <li>Fuel lines and hose</li>
+          <li>Primer bulbs</li>
+          <li>Fuel demand valves</li>
+          <li>Throttle body components</li>
+          <li>Fuel sending units</li>
+          <li>Fuel stabilizer and additives</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Electrical</h3>
+          <p>Starters, alternators, ignition, wiring, switches, and fuses.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Starters and solenoids</li>
+          <li>Alternators and regulators</li>
+          <li>Distributors and caps</li>
+          <li>Ignition coils and modules</li>
+          <li>Spark plugs and wires</li>
+          <li>Rotor buttons</li>
+          <li>Switches and panels</li>
+          <li>Fuses and fuse blocks</li>
+          <li>Wiring harnesses</li>
+          <li>Relays and solenoids</li>
+          <li>Batteries and terminals</li>
+          <li>Bilge pump switches and float switches</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Steering and Controls</h3>
+          <p>Helms, cables, throttle and shift controls, and hydraulic steering.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Steering wheels and helms</li>
+          <li>Steering cables</li>
+          <li>Hydraulic steering cylinders and hoses</li>
+          <li>Hydraulic steering fluid</li>
+          <li>Throttle and shift controls</li>
+          <li>Control cables</li>
+          <li>Binnacle mounts</li>
+          <li>Tilt/trim units and cylinders</li>
+          <li>Tilt/trim switches and relays</li>
+          <li>Teleflex control components</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Trim and Propulsion</h3>
+          <p>Props, outdrives, trim tabs, anodes, and skegs.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Propellers (aluminum, stainless, bronze)</li>
+          <li>Propeller hardware (nuts, washers, cotter pins)</li>
+          <li>Trim tabs and actuators</li>
+          <li>Outdrive components (MerCruiser, Volvo)</li>
+          <li>Zinc and aluminum anodes (hull, shaft, outdrive)</li>
+          <li>Skegs and lower units</li>
+          <li>Gimbal rings and bearings</li>
+          <li>Bellows kits</li>
+          <li>Shift shafts and seals</li>
+          <li>Drive shaft couplings</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Electronics and Instruments</h3>
+          <p>Gauges, senders, GPS mounts, depth finders, and wiring accessories.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Speedometers and tachometers</li>
+          <li>Oil pressure and temperature gauges</li>
+          <li>Fuel gauges and senders</li>
+          <li>Voltmeters and amp meters</li>
+          <li>Trim gauges and senders</li>
+          <li>Depth finders and transducers</li>
+          <li>GPS mount hardware</li>
+          <li>Hour meters</li>
+          <li>Gauge bezels and bezels</li>
+          <li>Marine stereo and speaker mounting hardware</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Plumbing and Cooling</h3>
+          <p>Impellers, water pumps, hoses, thru-hulls, and cooling components.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Water pump impellers (raw water)</li>
+          <li>Water pump housings and kits</li>
+          <li>Thermostats and housings</li>
+          <li>Hoses and hose clamps</li>
+          <li>Thru-hulls and seacocks</li>
+          <li>Heat exchangers</li>
+          <li>Exhaust manifolds and risers</li>
+          <li>Exhaust elbows</li>
+          <li>Engine mounts</li>
+          <li>Transom assemblies and seals</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Pumps and Ventilation</h3>
+          <p>Bilge pumps, blowers, ventilation hoses, and automatic controls.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Bilge pumps (manual and automatic)</li>
+          <li>Bilge pump float switches</li>
+          <li>Blower motors and housings</li>
+          <li>Ventilation hose and fittings</li>
+          <li>Livewell pumps</li>
+          <li>Washdown pumps</li>
+          <li>Automatic pump controllers</li>
+          <li>Intake and exhaust covers</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Hardware</h3>
+          <p>Deck hardware, fasteners, cleats, hinges, handles, and fittings.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Cleats (stainless, chrome, nylon)</li>
+          <li>Hinges and piano hinge</li>
+          <li>Latches and locks</li>
+          <li>Handles and grab rails</li>
+          <li>Snaps and snap fasteners</li>
+          <li>Turnbuttons and deck plates</li>
+          <li>Stainless screws and bolts</li>
+          <li>Bow eyes and stern eyes</li>
+          <li>Chocks and fairleads</li>
+          <li>Rod holders and cup holders</li>
+          <li>Mirrors and horns</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Mooring and Docking</h3>
+          <p>Dock lines, fenders, anchors, chain, and mooring buoys.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Dock lines and ropes</li>
+          <li>Fenders and fender holders</li>
+          <li>Anchors (danforth, plow, mushroom)</li>
+          <li>Anchor chain and rode</li>
+          <li>Dock cleats and bumpers</li>
+          <li>Dock wheels and corner guards</li>
+          <li>Mooring buoys</li>
+          <li>Boat hooks</li>
+          <li>Spring lines</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Safety Products</h3>
+          <p>Life vests, flares, fire extinguishers, CO detectors, and required safety gear.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Life vests and PFDs (Type I, II, III)</li>
+          <li>Throwable cushions (Type IV)</li>
+          <li>Visual distress signals and flares</li>
+          <li>Fire extinguishers</li>
+          <li>Carbon monoxide detectors</li>
+          <li>Air horns and whistles</li>
+          <li>Throw ropes</li>
+          <li>First-aid kits</li>
+          <li>Navigation lights</li>
+          <li>Boarding ladders</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Trailer Parts</h3>
+          <p>Rollers, winches, lights, hubs, bearings, and coupler hardware.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Rollers and bunk boards</li>
+          <li>Winches and winch straps</li>
+          <li>Trailer lights (bow, stern, side)</li>
+          <li>Trailer hubs and spindles</li>
+          <li>Wheel bearings and races</li>
+          <li>Bearing buddies and protectors</li>
+          <li>Coupler locks and safety chains</li>
+          <li>Trailer jacks and tongue jacks</li>
+          <li>Bunks and carpet</li>
+          <li>Transom tie-down straps</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Accessories</h3>
+          <p>Seat pedestals, tow bars, boarding ladders, covers, and cockpit accessories.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Seat pedestals and bases</li>
+          <li>Ski tow bars and pylons</li>
+          <li>Boarding ladders</li>
+          <li>Swim platforms</li>
+          <li>Cockpit and bow covers</li>
+          <li>Bimini top hardware</li>
+          <li>Ski ropes and handles</li>
+          <li>Wakeboard towers (brackets)</li>
+          <li>Cooler mounts</li>
+          <li>Tackle box holders</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Care Products</h3>
+          <p>West System, Interlux, marine wax, cleaners, and surface protection.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>West System epoxy and hardeners</li>
+          <li>Interlux bottom paint and varnish</li>
+          <li>Marine wax and polish</li>
+          <li>Hull cleaner and oxidation remover</li>
+          <li>Teak cleaner and brightener</li>
+          <li>Vinyl cleaner and protectant</li>
+          <li>Bilge cleaner</li>
+          <li>Canvas cleaner and waterproofer</li>
+          <li>Metal polish (chrome, brass, stainless)</li>
+          <li>Glass and windshield cleaner</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="parts-item">
+      <summary>
+        <div class="parts-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="parts-item-label">
+          <h3>Service Supplies and Maintenance Kits</h3>
+          <p>Oil, gear lube, antifreeze, impeller kits, and tune-up supplies by engine brand.</p>
+        </div>
+        <span class="parts-item-arrow">▾</span>
+      </summary>
+      <div class="parts-item-body">
+        <ul>
+          <li>Marine engine oil (2-stroke and 4-stroke)</li>
+          <li>Gear lube and lower unit oil</li>
+          <li>Power steering fluid</li>
+          <li>Marine antifreeze (non-toxic)</li>
+          <li>Fuel stabilizer</li>
+          <li>Fogging oil</li>
+          <li>Impeller replacement kits (by brand)</li>
+          <li>Tune-up kits (spark plugs, distributor cap, rotor, points)</li>
+          <li>Oil change kits</li>
+          <li>Zincs and anode maintenance kits</li>
+          <li>Thermostat replacement kits</li>
+          <li>Seasonal lay-up and spring commissioning supplies</li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- Brands -->
+  <div class="parts-brands-section">
+    <h2>Engine brands we carry parts for</h2>
+    <p>Our parts catalog covers all major marine engine manufacturers — inboard, I/O, and outboard.</p>
+    <div class="brand-grid">
+      <span class="brand-chip">Mercury Marine</span>
+      <span class="brand-chip">MerCruiser</span>
+      <span class="brand-chip">Volvo Penta</span>
+      <span class="brand-chip">OMC</span>
+      <span class="brand-chip">Johnson / Evinrude</span>
+      <span class="brand-chip">Yamaha</span>
+      <span class="brand-chip">Honda</span>
+      <span class="brand-chip">Chris-Craft</span>
+      <span class="brand-chip">Chrysler</span>
+      <span class="brand-chip">Indmar</span>
+      <span class="brand-chip">GM Marine</span>
+      <span class="brand-chip">Suzuki</span>
+      <span class="brand-chip">Arco</span>
+      <span class="brand-chip">Wiseco</span>
+      <span class="brand-chip">Johnson Pump</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="parts-cta">
+    <div>
+      <h3>Don't see the part you need?</h3>
+      <p>Call us with your engine make, model, and year — we'll track down the part you need.</p>
+    </div>
+    <div style="display:flex; gap:.8rem; flex-wrap:wrap;">
+      <a href="tel:9524469611" class="btn btn-primary">Call 952-446-9611</a>
+      <a href="index.html#contact" class="btn btn-ghost" style="color:#fff; border-color:rgba(255,255,255,.4);">Send a message</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="38" height="38"><path d="M5 26h30l-3 6H8z" fill="currentColor"/><path d="M20 4l8 16H12z" fill="currentColor" opacity=".55"/><path d="M20 8v12" stroke="currentColor" stroke-width="1.5"/></svg>
+      </span>
+      <strong>Midwest Boat Appeal, Inc.</strong>
+      <p>4340 Main Street<br/>St. Bonifacius, MN 55375<br/>952-446-9611</p>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a href="index.html#services">Refinishing</a></li>
+        <li><a href="index.html#services">Restoration</a></li>
+        <li><a href="index.html#services">Repairs</a></li>
+        <li><a href="index.html#services">Cleaning and Detailing</a></li>
+        <li><a href="index.html#services">Mechanical Service</a></li>
+        <li><a href="index.html#services">Storage and Winterizing</a></li>
+        <li><a href="parts.html">Parts and Supplies</a></li>
+        <li><a href="index.html#sales">Boats for Sale</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Marine Plywood</h5>
+      <ul>
+        <li>BS 1088 (Hydrotek)</li>
+        <li>BS 6566 (Aquatek)</li>
+        <li>Okoume · Meranti · Keruing</li>
+        <li>Teak · Teak and Holly</li>
+        <li>Marine Lumber</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Visit</h5>
+      <p>Conveniently located between Lake Minnetonka and Lake Waconia, west of the Twin Cities.</p>
+      <p>Mon–Fri 8–5 · Sat by appointment 10–2</p>
+    </div>
+  </div>
+  <div class="footer-bar">
+    © <span id="year"></span> Midwest Boat Appeal, Inc. — <a href="index.html" style="color:inherit; text-decoration:underline;">Back to main site</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-stuck', window.scrollY > 40);
+  }, { passive: true });
+</script>
+</body>
+</html>
