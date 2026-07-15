@@ -42,35 +42,7 @@
   document.addEventListener("click", () => closeAllDDs(null));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAllDDs(null); });
 
-  /* ---- Boat-for-sale gallery (thumbs + prev/next + keyboard) ---- */
-  const mainImg = $("#listingMain");
-  const thumbs  = $$(".listing-thumbs .thumb");
-  const counter = $("#listingCounter");
-  let activeIdx = 0;
-  function setActive(i) {
-    if (!thumbs.length || !mainImg) return;
-    activeIdx = (i + thumbs.length) % thumbs.length;
-    const src = thumbs[activeIdx].getAttribute("data-src");
-    mainImg.style.opacity = "0";
-    const tmp = new Image();
-    tmp.onload = () => { mainImg.src = src; mainImg.style.opacity = "1"; };
-    tmp.src = src;
-    thumbs.forEach((b, idx) => b.classList.toggle("is-active", idx === activeIdx));
-    if (counter) counter.textContent = `${activeIdx + 1} / ${thumbs.length}`;
-  }
-  thumbs.forEach((btn, idx) => btn.addEventListener("click", () => setActive(idx)));
-  $("#listingPrev")?.addEventListener("click", () => setActive(activeIdx - 1));
-  $("#listingNext")?.addEventListener("click", () => setActive(activeIdx + 1));
-  // arrow-key nav when the gallery is in view
-  document.addEventListener("keydown", (e) => {
-    const main = document.querySelector(".listing-main");
-    if (!main) return;
-    const r = main.getBoundingClientRect();
-    const inView = r.bottom > 0 && r.top < window.innerHeight;
-    if (!inView) return;
-    if (e.key === "ArrowLeft")  setActive(activeIdx - 1);
-    if (e.key === "ArrowRight") setActive(activeIdx + 1);
-  });
+  /* ---- Boat-for-sale gallery is rendered + wired by cms-render.js ---- */
 
   /* ---- Sticky nav style on scroll ---- */
   const nav = $("#nav");

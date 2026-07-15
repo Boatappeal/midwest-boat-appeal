@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: Boatappeal/midwest-boat-appeal
+  branch: main
+  base_url: https://midwest-oauth.boatappeal.workers.dev
+
+media_folder: img/uploads
+public_folder: /img/uploads
+
+collections:
+  - name: boats_for_sale
+    label: Boats For Sale
+    label_singular: Boat
+    files:
+      - label: Boat Listings
+        name: boat_listings
+        file: _data/boat-for-sale.json
+        fields:
+          - label: Listings
+            name: listings
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Price, name: price, widget: string, hint: "e.g. $12,500" }
+              - { label: Tag, name: tag, widget: string, default: "Featured listing" }
+              - label: Specs
+                name: specs
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Value, name: value, widget: string }
+              - label: Photos
+                name: photos
+                widget: list
+                field: { label: Photo, name: photo, widget: image }
+
+  - name: contact
+    label: Contact Info
+    files:
+      - label: Contact Info
+        name: contact
+        file: _data/contact.json
+        fields:
+          - { label: Phone, name: phone, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Address, name: address, widget: text }
+          - { label: Hours, name: hours, widget: text }
